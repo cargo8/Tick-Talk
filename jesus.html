@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Google Visualization API Sample</title>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load('visualization', '1', {packages: ['annotatedtimeline']});
+    function drawVisualization() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Your Rating');
+      data.addColumn('string', 'title1');
+      data.addColumn('string', 'text1');
+      data.addColumn('number', 'Competitor');
+      data.addColumn('string', 'title2');
+      data.addColumn('string', 'text2');
+      data.addRows(6);
+      data.setValue(0, 0, new Date(2008, 1 ,1));
+      data.setValue(0, 1, 30);
+      data.setValue(0, 4, 40);
+      data.setValue(1, 0, new Date(2008, 1 ,2));
+      data.setValue(1, 1, 14);
+      data.setValue(1, 4, 20);
+      data.setValue(2, 0, new Date(2008, 1 ,3));
+      data.setValue(2, 1, 55);
+      data.setValue(2, 4, 50);
+      data.setValue(3, 0, new Date(2008, 1 ,4));
+      data.setValue(3, 1, 75);
+      data.setValue(3, 4, 14);
+      data.setValue(3, 5, 'New Menu');
+      data.setValue(3, 6, 'Added a number of dishes');
+      data.setValue(4, 0, new Date(2008, 1 ,5));
+      data.setValue(4, 1, 41);
+      data.setValue(4, 2, 'Started new advertisement');
+      data.setValue(4, 3, 'WOM marketing campaign');
+      data.setValue(4, 4, 66);
+      data.setValue(5, 0, new Date(2008, 1 ,6));
+      data.setValue(5, 1, 33);
+      data.setValue(5, 4, 39);
+      
+      var options = {'displayAnnotations': true, fill: 50, displayAnnotationsFilter: true, displayLegendDots: false, displayLegendValues: true}
+      
+      var annotatedtimeline = new google.visualization.AnnotatedTimeLine(
+          document.getElementById('visualization'));
+      annotatedtimeline.draw(data, options);
+    }
+    
+    google.setOnLoadCallback(drawVisualization);
+  </script>
+</head>
+<body style="font-family: Arial;border: 0 none;">
+<div id="visualization" style="width: 800px; height: 400px;"></div>
+</body>
+</html>
+​
